@@ -1,9 +1,14 @@
 # Miscellaneous
+.claude/
 *.class
 *.log
 *.pyc
 *.swp
 .DS_Store
+
+# Office temporary files
+~$*
+*.tmp
 .atom/
 .build/
 .buildlog/
