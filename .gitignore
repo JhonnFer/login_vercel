@@ -5,6 +5,7 @@
 *.pyc
 *.swp
 .DS_Store
+*.md
 
 # Office temporary files
 ~$*
