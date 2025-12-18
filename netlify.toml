@@ -1,7 +1,8 @@
 [build]
+  base = "netlify"
   command = "echo 'Building...'"
-  publish = "netlify/public"
-  functions = "netlify/api"
+  publish = "public"
+  functions = "api"
 
 [functions]
   node_bundler = "esbuild"
