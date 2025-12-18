@@ -1,7 +1,7 @@
 [build]
   command = "echo 'Building...'"
-  publish = "vercel/public"
-  functions = "vercel/api"
+  publish = "netlify/public"
+  functions = "netlify/api"
 
 [functions]
   node_bundler = "esbuild"

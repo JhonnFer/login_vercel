@@ -1,0 +1,10 @@
+{
+  "name": "login-pro-netlify",
+  "version": "1.0.0",
+  "description": "Netlify pages for email verification and password reset",
+  "scripts": {
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
