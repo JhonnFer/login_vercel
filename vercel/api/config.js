@@ -1,18 +1,30 @@
-// Vercel Serverless Function para exponer variables de entorno
-export default function handler(req, res) {
+// Netlify Serverless Function para exponer variables de entorno
+exports.handler = async (event, context) => {
   // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Content-Type": "application/json",
+  };
 
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers,
+      body: "",
+    };
   }
 
-  // Retornar solo las variables públicas 
-  res.status(200).json({
+  // Retornar las variables públicas
+  const response = {
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
-  });
-}
+  };
+
+  return {
+    statusCode: 200,
+    headers,
+    body: JSON.stringify(response),
+  };
+};
