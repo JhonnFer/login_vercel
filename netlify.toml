@@ -11,11 +11,13 @@
   from = "/verify-email"
   to = "/verify-email.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/reset-password"
   to = "/reset-password.html"
   status = 200
+  force = true
 
 [env]
   [env.production]
