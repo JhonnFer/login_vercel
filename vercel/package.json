@@ -1,9 +1,9 @@
 {
-  "name": "login-pro-netlify",
+  "name": "login-pro-vercel",
   "version": "1.0.0",
-  "description": "Netlify pages for email verification and password reset",
+  "description": "Vercel pages for email verification and password reset",
   "scripts": {
-    "deploy": "netlify deploy --prod"
+    "deploy": "vercel --prod"
   },
   "dependencies": {},
   "devDependencies": {}
