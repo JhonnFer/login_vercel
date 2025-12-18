@@ -172,8 +172,9 @@
 
             try {
                 // Confirmar el email con Supabase usando verifyOtp
+                // Usar token_hash en lugar de token para PKCE flow
                 const { data, error } = await supabase.auth.verifyOtp({
-                    token: token,
+                    token_hash: token,
                     type: 'signup'
                 });
 
