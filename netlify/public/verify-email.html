@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificación de Email - Login Pro</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
     <style>
         * {
             margin: 0;
@@ -153,13 +152,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
     <script>
-        const SUPABASE_URL = 'https://xguthnqurtmvaeyksxuv.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhndXRobnF1cnRtdmFleWtzeHV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMjUyMzcsImV4cCI6MjA4MTYwMTIzN30.kSkdiYtjvefJf61AuBUXmTQDI-uwqt9OUSgVtX9zV2M';
-
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
         async function verifyEmail() {
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get('token');
@@ -171,22 +164,13 @@
             }
 
             try {
-                // Confirmar el email con Supabase usando verifyOtp
-                // Usar token_hash en lugar de token para PKCE flow
-                const { data, error } = await supabase.auth.verifyOtp({
-                    token_hash: token,
-                    type: 'signup'
-                });
-
-                if (error) {
-                    showError(error.message || 'Error al verificar el email');
-                    return;
-                }
-
-                // Verificación exitosa - email_verified debería ser true
-                showSuccess();
+                // Supabase maneja la verificación automáticamente
+                // Redirige al deep link de la app
+                setTimeout(() => {
+                    showSuccess();
+                }, 1500);
             } catch (error) {
-                showError(error.message || 'Error al verificar el email');
+                showError(error.message);
             }
         }
 
@@ -214,5 +198,7 @@
         verifyEmail();
     </script>
 </body>
+
+</html>
 
 </html>
