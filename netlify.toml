@@ -1,0 +1,22 @@
+[build]
+  command = "echo 'Building...'"
+  publish = "vercel/public"
+  functions = "vercel/api"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/verify-email"
+  to = "/verify-email.html"
+  status = 200
+
+[[redirects]]
+  from = "/reset-password"
+  to = "/reset-password.html"
+  status = 200
+
+[env]
+  [env.production]
+    SUPABASE_URL = "https://xguthnqurtmvaeyksxuv.supabase.co"
+    SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhndXRobnF1cnRtdmFleWtzeHV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMjUyMzcsImV4cCI6MjA4MTYwMTIzN30.kSkdiYtjvefJf61AuBUXmTQDI-uwqt9OUSgVtX9zV2M"
