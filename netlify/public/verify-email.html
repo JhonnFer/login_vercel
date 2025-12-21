@@ -154,24 +154,11 @@
 
     <script>
         async function verifyEmail() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
-            const type = urlParams.get('type');
-
-            if (!token || type !== 'signup') {
-                showError('Enlace de verificación inválido');
-                return;
-            }
-
-            try {
-                // Supabase maneja la verificación automáticamente
-                // Redirige al deep link de la app
-                setTimeout(() => {
-                    showSuccess();
-                }, 1500);
-            } catch (error) {
-                showError(error.message);
-            }
+            // Supabase ya verificó el email antes de redirigir aquí
+            // Solo mostramos el mensaje de éxito
+            setTimeout(() => {
+                showSuccess();
+            }, 1500);
         }
 
         function showSuccess() {
